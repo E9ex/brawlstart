@@ -10,14 +10,15 @@ public class playermovement : MonoBehaviour
     private bool movement;
     void Start()
     {
-        
+        playersprite.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (joystick.Horizontal>0|| joystick.Horizontal<0 || joystick.Vertical>0|| joystick.Vertical<0)
         {
+            playersprite.gameObject.SetActive(true);
             playersprite.position = new Vector3(joystick.Horizontal+transform.position.x, .1f, joystick.Vertical+transform.position.z);
             transform.LookAt(new Vector3(playersprite.position.x,0,playersprite.position.z));
             transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);

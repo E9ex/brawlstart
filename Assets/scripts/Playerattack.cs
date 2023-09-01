@@ -7,7 +7,7 @@ public class Playerattack : MonoBehaviour
     [SerializeField] private LineRenderer lr;
     [SerializeField] private Joystick attackjoystick;
     [SerializeField] private Transform attacklookat;
-    [SerializeField] public float lrdistance = 1f;
+    [SerializeField] public float lrdistance = 7f;
     [SerializeField] private Transform player;
     private RaycastHit hit;
     private bool shoot;
