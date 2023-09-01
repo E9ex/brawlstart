@@ -11,7 +11,7 @@ public class bullet : MonoBehaviour
     void Start()
     {
         pa = GameObject.Find("attacktrail").GetComponent<Playerattack>();
-        bulletenddist = transform.position + transform.forward * pa.lrdistance;
+        bulletenddist = transform.position + transform.forward * pa.lrdistance;// merminin gidebileceği yer.
     }
 
     // Update is called once per frame
