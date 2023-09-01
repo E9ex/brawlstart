@@ -30,17 +30,16 @@ public class Playerattack : MonoBehaviour
             attacklookat.position = new Vector3(attackjoystick.Horizontal+transform.position.x, .1f, attackjoystick.Vertical+transform.position.z);
             transform.LookAt(new Vector3(attacklookat.position.x,0,attacklookat.position.z));
             transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
-            lr.SetPosition(0,transform.position);
+            lr.SetPosition(0,transform.position);//başlangıç noktasını 0. pozisyonunu nesnenin mevcut konumuna ayarlar
             if (Physics.Raycast(transform.position,transform.forward,out hit,lrdistance))
             {
-                lr.SetPosition(1,hit.point);
+                lr.SetPosition(1,hit.point);//1 pozisyonunu, bu çarpışma noktasına ayarlar. (bunu yazmazsam obstacleslara gitmiyor linerenderer.)
             }
             else
             {
-                lr.SetPosition(1,transform.forward+transform.forward*lrdistance);
-                lr.SetPosition(1,new Vector3(lr.GetPosition(1).x,.1f,lr.GetPosition(1).z));
+              lr.SetPosition(1,transform.forward+transform.forward*lrdistance);//Bu, çarpışma olmadığında lazer hattının belirtilen uzaklıkta düz bir çizgi olarak görüneceği demek.(bunu yazmazsam ise sadece obstaclelari gidiyor linerenderer.)
+                lr.SetPosition(1,new Vector3(lr.GetPosition(1).x,.1f,lr.GetPosition(1).z));//çarpışma olmadığında, lazer hattının ikinci noktasını ayarlar.
             }
-
             if (shoot==false)
             {
                 shoot=true;
