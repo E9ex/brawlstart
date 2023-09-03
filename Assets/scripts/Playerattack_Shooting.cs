@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Playerattack_Throw : MonoBehaviour
+public class Playerattack_Shooting : MonoBehaviour
 {
     [SerializeField] private LineRenderer lr;
     [SerializeField] private Joystick attackjoystick;
@@ -54,5 +54,12 @@ public class Playerattack_Throw : MonoBehaviour
         // {
         //     lr.gameObject.SetActive(false);
         // }
+    }
+    public void playershooting()
+    {
+        if (shoot)
+        {
+            shoot=true;
+        }  
     }
 }

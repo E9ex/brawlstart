@@ -3,14 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class bullet : MonoBehaviour
+public class bullet_shooting : MonoBehaviour
 {
-    [SerializeField] private Playerattack pa;
+    [SerializeField] private Playerattack_Shooting pa;
     private Vector3 bulletenddist;
     [SerializeField] private float speed;
     void Start()
     {
-        pa = GameObject.Find("attacktrail").GetComponent<Playerattack>();
+        pa = GameObject.Find("attacktrail").GetComponent<Playerattack_Shooting>();
         bulletenddist = transform.position + transform.forward * pa.lrdistance;// merminin gidebileceği yer.
     }
 
