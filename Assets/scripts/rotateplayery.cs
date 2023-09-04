@@ -19,15 +19,10 @@ public class rotateplayery : MonoBehaviour,IPointerUpHandler,IPointerDownHandler
             touch =  Input.GetTouch(0);
             if (touch.phase== TouchPhase.Moved)
             {
-                if (touch.deltaPosition.x>0)
-                 {
-                    heroholder.Rotate(0,5f,0);
-                }
-                else if(touch.deltaPosition.x<0)
+                if (touch.deltaPosition.x > 0)
                 {
-                    heroholder.Rotate(0,5f,0);
+                    heroholder.Rotate(0,-touch.deltaPosition.x,0);
                 }
-
                 move = true;
             }
         }

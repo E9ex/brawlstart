@@ -5,9 +5,10 @@ using UnityEngine;
 
 public class bullet_shooting : MonoBehaviour
 {
-    [SerializeField] private Playerattack_Shooting pa;
+     private Playerattack_Shooting pa;
     private Vector3 bulletenddist;
     [SerializeField] private float speed;
+    private float damagep = 300f;
     void Start()
     {
         pa = GameObject.Find("attacktrail").GetComponent<Playerattack_Shooting>();
@@ -26,8 +27,9 @@ public class bullet_shooting : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-        if (other.transform.tag=="enemy")
+        if (other.transform.tag=="Player")
         {
+            other.transform.GetComponent<health>().Damage(damagep);
             Destroy(this.gameObject);
         }
         else

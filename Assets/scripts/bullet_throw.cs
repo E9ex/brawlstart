@@ -11,9 +11,13 @@ public class bullet_throw : MonoBehaviour
     [SerializeField] private float speed;
     bool Throw;
     private int currentIndex;
+    private SphereCollider sphereCollider;
+    private float damagethrow = 100f;
+    
     private void Start()
     {
         pa = GameObject.FindGameObjectWithTag("attacktrialthrow").GetComponent<Playerattack_Throw>();
+        sphereCollider = GetComponent<SphereCollider>();
         points = new Vector3[9];
         pa.bulletPoints.CopyTo(points,0);
         rb = transform.GetComponent<Rigidbody>();
@@ -37,6 +41,14 @@ public class bullet_throw : MonoBehaviour
     } 
     }
 
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.GetComponent<health>()!=null)
+        {
+            other.GetComponent<health>().Damage(damagethrow);
+        }
+    }
+
     private void OnCollisionEnter(Collision other)
     {
         if (other.transform.tag=="enemy")
@@ -45,9 +57,11 @@ public class bullet_throw : MonoBehaviour
         }
         else
         {
+            sphereCollider.isTrigger = true;
             StartCoroutine(Destroythis());
         }
     }
+    
 
     IEnumerator Destroythis()
     {
