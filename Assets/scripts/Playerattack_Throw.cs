@@ -47,8 +47,7 @@ public class Playerattack_Throw : MonoBehaviour
             Instantiate(bullet, transform.position, transform.rotation);
             shoot = false;
         }
-       
-       
+   
     }
     public void playershooting()
     {
