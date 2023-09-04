@@ -35,7 +35,7 @@ public class Playerattack_Throw : MonoBehaviour
             for (int i = 1; i < 10; i++)
             {
               lr.SetPosition(i,new Vector3(lr.GetPosition(i-1).x+attackjoystick.Horizontal,i==1?.3f :Mathf.Cos(linepower_y*(i*.1f))*(i*.4f),lr.GetPosition(i-1).z+attackjoystick.Vertical));
-              bulletPoints[i-1] = lr.GetPosition(i);
+              bulletPoints[i - 1] = lr.GetPosition(i) + transform.forward * .5f;
             }
             if (shoot==false)
             {

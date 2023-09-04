@@ -13,6 +13,12 @@ public class bullet_throw : MonoBehaviour
     private int currentIndex;
     private SphereCollider sphereCollider;
     private float damagethrow = 100f;
+    private float damaget;
+    private void Awake()
+    {
+        transform.position += transform.forward * .5f;
+        
+    }
     
     private void Start()
     {
@@ -43,9 +49,10 @@ public class bullet_throw : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.GetComponent<health>()!=null)
+        if (other.GetComponent<health>()!=null&& Time.time>damaget)
         {
             other.GetComponent<health>().Damage(damagethrow);
+            damaget = Time.time + .3f;
         }
     }
 

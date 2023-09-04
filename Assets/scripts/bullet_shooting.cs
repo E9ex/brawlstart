@@ -9,6 +9,13 @@ public class bullet_shooting : MonoBehaviour
     private Vector3 bulletenddist;
     [SerializeField] private float speed;
     private float damagep = 300f;
+
+    private void Awake()
+    {
+        transform.position += transform.forward * .5f;
+        
+    }
+
     void Start()
     {
         pa = GameObject.Find("attacktrail").GetComponent<Playerattack_Shooting>();
