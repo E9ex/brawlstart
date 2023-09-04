@@ -32,6 +32,8 @@ public class Playerattack_Throw : MonoBehaviour
             transform.LookAt(new Vector3(attacklookat.position.x,0,attacklookat.position.z));
             transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
             lr.SetPosition(0,transform.position);//başlangıç noktasını 0. pozisyonunu nesnenin mevcut konumuna ayarlar
+            
+            
             for (int i = 1; i < 10; i++)
             {
               lr.SetPosition(i,new Vector3(lr.GetPosition(i-1).x+attackjoystick.Horizontal,i==1?.3f :Mathf.Cos(linepower_y*(i*.1f))*(i*.4f),lr.GetPosition(i-1).z+attackjoystick.Vertical));
