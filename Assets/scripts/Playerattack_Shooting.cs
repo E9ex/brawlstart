@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,11 +13,6 @@ public class Playerattack_Shooting : MonoBehaviour
     private RaycastHit hit;
     private bool shoot;
     [SerializeField] private Transform bullet;
-    void Start()
-    {
-        
-    }
-
     // Update is called once per frame
     void Update()
     {
@@ -34,11 +30,13 @@ public class Playerattack_Shooting : MonoBehaviour
             if (Physics.Raycast(transform.position,transform.forward,out hit,lrdistance))
             {
                 lr.SetPosition(1,hit.point);//1 pozisyonunu, bu çarpışma noktasına ayarlar. (bunu yazmazsam obstacleslara gitmiyor linerenderer.)
+               
             }
             else
             {
               lr.SetPosition(1,transform.forward+transform.forward*lrdistance);//Bu, çarpışma olmadığında lazer hattının belirtilen uzaklıkta düz bir çizgi olarak görüneceği demek.(bunu yazmazsam ise sadece obstaclelari gidiyor linerenderer.)
                 lr.SetPosition(1,new Vector3(lr.GetPosition(1).x,.1f,lr.GetPosition(1).z));//çarpışma olmadığında, lazer hattının ikinci noktasını ayarlar.
+               
             }
             if (shoot==false)
             {
@@ -61,5 +59,21 @@ public class Playerattack_Shooting : MonoBehaviour
         {
             shoot=true;
         }  
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        Debug.Log("çalişiyor musun");
+        if (CompareTag("enemy"))
+        {
+            other.transform.GetComponent<Enemy>().takedamage(20);
+            Destroy(this.gameObject);
+        }else
+        {
+            Destroy(this.gameObject);
+            Debug.Log("hooopopoppo");
+        }
+
+       
     }
 }

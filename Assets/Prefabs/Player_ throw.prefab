@@ -1712,7 +1712,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   charactertype: 1500
-  slider: {fileID: 0}
 --- !u!1 &6519897434602517709
 GameObject:
   m_ObjectHideFlags: 0
@@ -2564,9 +2563,12 @@ GameObject:
   - component: {fileID: 1355016433135301565}
   - component: {fileID: 697681093061556352}
   - component: {fileID: 3540145763924919347}
+  - component: {fileID: 664792830}
+  - component: {fileID: 664792833}
+  - component: {fileID: 664792834}
   m_Layer: 0
   m_Name: attacktrail
-  m_TagString: Untagged
+  m_TagString: attacktrialthrow
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2606,7 +2608,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 8bd2e5c802d8f450da2d797d8f19abf2, type: 2}
+  - {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2630,6 +2632,14 @@ LineRenderer:
   m_Positions:
   - {x: 0, y: 0.1, z: 0}
   - {x: 0, y: 0.1, z: 1}
+  - {x: 0, y: 0.1, z: 1}
+  - {x: 0, y: 0.1, z: 1}
+  - {x: 0, y: 0.1, z: 1}
+  - {x: 0, y: 0.1, z: 1}
+  - {x: 0, y: 0.1, z: 1}
+  - {x: 0, y: 0.1, z: 1}
+  - {x: 0, y: 0.1, z: 1}
+  - {x: 0, y: 0.1, z: 1}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -2638,7 +2648,7 @@ LineRenderer:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 1
+        value: 0.5126591
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -2650,8 +2660,8 @@ LineRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 0.6981132, g: 0.6618903, b: 0.6618903, a: 1}
-      key1: {r: 1, g: 1, b: 1, a: 1}
+      key0: {r: 1, g: 1, b: 1, a: 1}
+      key1: {r: 1, g: 1, b: 1, a: 0.25882354}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
@@ -2667,7 +2677,7 @@ LineRenderer:
       ctime6: 0
       ctime7: 0
       atime0: 0
-      atime1: 65535
+      atime1: 65150
       atime2: 0
       atime3: 0
       atime4: 0
@@ -2692,19 +2702,76 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8483407719184220043}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0f10f35acf18c4ac49eab1f87e0226c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   lr: {fileID: 697681093061556352}
-  attackjoystick: {fileID: 2929252283123773951, guid: aaa2c939c0359ac4dbce3f49e8b90252, type: 3}
+  attackjoystick: {fileID: 4769009513571139565}
   attacklookat: {fileID: 1674056835622359779}
-  lrdistance: 7
+  lrdistance: 0
   player: {fileID: 6025679586534357587}
-  bullet: {fileID: 8819749104400142093, guid: 3ae78f693a8e84774b339e3f774b62ec, type: 3}
+  bullet: {fileID: 8819749104400142093, guid: 6a1c9fe0f372f4b46b2822c7c4a412a9, type: 3}
   bulletPoints: []
-  linepower_y: 0
+  linepower_y: 2
+--- !u!114 &664792830
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8483407719184220043}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c502e7725b9cb46a8b102827a8348429, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clampInDegrees: {x: 360, y: 180}
+  sensitivity: {x: 0.1, y: 0.1}
+  smoothing: {x: 1, y: 1}
+  lockCursor: 0
+  characterBody: {fileID: 8483407719184220043}
+--- !u!114 &664792833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8483407719184220043}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 159320277804f4a16b866d08245f9c62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectToThrow: {fileID: 3693901581731349153, guid: 6a1c9fe0f372f4b46b2822c7c4a412a9, type: 3}
+  force: 13
+  StartPosition: {fileID: 1674056835622359779}
+  fire:
+    m_Name: Fire
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 7560fc6d-8c00-45e8-a72d-a3db346952a0
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+--- !u!114 &664792834
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8483407719184220043}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb49f6aaa4ee64458a71f1efc0688953, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitMarker: {fileID: 0}
+  maxPoints: 50
+  increment: 0.025
+  rayOverlap: 1.1
 --- !u!1 &8644298325757826630
 GameObject:
   m_ObjectHideFlags: 0
@@ -3070,6 +3137,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fixed Joystick
       objectReference: {fileID: 0}
+    - target: {fileID: 2929252283123773939, guid: aaa2c939c0359ac4dbce3f49e8b90252, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aaa2c939c0359ac4dbce3f49e8b90252, type: 3}
 --- !u!224 &4769009513571139552 stripped
@@ -3077,6 +3148,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 2929252283123773938, guid: aaa2c939c0359ac4dbce3f49e8b90252, type: 3}
   m_PrefabInstance: {fileID: 7676429047702064658}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &4769009513571139565 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2929252283123773951, guid: aaa2c939c0359ac4dbce3f49e8b90252, type: 3}
+  m_PrefabInstance: {fileID: 7676429047702064658}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45977bbae16431c46a013576a1aea384, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &7676429048897557920
 PrefabInstance:
   m_ObjectHideFlags: 0

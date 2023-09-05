@@ -1,0 +1,34 @@
+{
+    "name": "PlayerInputAction",
+    "maps": [
+        {
+            "name": "pActionmap",
+            "id": "13c62352-61f8-4f44-bcdc-a21c99741374",
+            "actions": [
+                {
+                    "name": "Mouselook",
+                    "type": "Value",
+                    "id": "7b98a32c-f277-4cb8-b3ca-2ea1a5b96581",
+                    "expectedControlType": "Delta",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "106fc91b-5ac5-465b-9880-1a0803b69187",
+                    "path": "<Pointer>/delta",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Mouselook",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}

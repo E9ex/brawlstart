@@ -8,12 +8,13 @@ public class bullet_shooting : MonoBehaviour
      private Playerattack_Shooting pa;
     private Vector3 bulletenddist;
     [SerializeField] private float speed;
-    private float damagep = 300f;
+    private int damagep = 20;
+
+    
 
     private void Awake()
     {
         transform.position += transform.forward * .5f;
-        
     }
 
     void Start()
@@ -31,16 +32,15 @@ public class bullet_shooting : MonoBehaviour
         }
         transform.Translate(Vector3.forward*speed);
     }
-
-    private void OnCollisionEnter(Collision other)
+    private void OnTriggerEnter(Collider other)
     {
-        if (other.transform.tag=="Player")
+        if (other != null && other.CompareTag("enemy"))
         {
-            other.transform.GetComponent<health>().Damage(damagep);
-            Destroy(this.gameObject);
-        }
-        else
-        {
+            Enemy enemyComponent = other.transform.GetComponent<Enemy>();
+            if (enemyComponent != null)
+            {
+                enemyComponent.takedamage(20);
+            }
             Destroy(this.gameObject);
         }
     }

@@ -5,14 +5,14 @@ using UnityEngine;
 
 public class bullet_throw : MonoBehaviour
 {
-    private Playerattack_Throw pa;
+    [SerializeField]private Playerattack_Throw pa;
     private Vector3[] points;
     private Rigidbody rb;
     [SerializeField] private float speed;
     bool Throw;
     private int currentIndex;
     private SphereCollider sphereCollider;
-    private float damagethrow = 100f;
+   
     private float damaget;
     private void Awake()
     {
@@ -22,7 +22,7 @@ public class bullet_throw : MonoBehaviour
     
     private void Start()
     {
-        pa = GameObject.FindGameObjectWithTag("attacktrialthrow").GetComponent<Playerattack_Throw>();
+     
         sphereCollider = GetComponent<SphereCollider>();
         points = new Vector3[9];
         pa.bulletPoints.CopyTo(points,0);
@@ -31,30 +31,34 @@ public class bullet_throw : MonoBehaviour
 
     private void Update()
     {
-    transform.Translate(Vector3.forward*speed);
-    if (Throw)
-    {
-        transform.LookAt(points[currentIndex]);
-    }
-    else if ((points[currentIndex] - transform.position).sqrMagnitude < .2f) ;
-    {
-        if (currentIndex==8)
+        transform.Translate(Vector3.forward * speed);
+        if (Throw)
         {
-            rb.useGravity = true;
+            transform.LookAt(points[currentIndex]);
         }
-        currentIndex++;
-        transform.LookAt(points[currentIndex]);
-    } 
+        else if ((points[currentIndex] - transform.position).sqrMagnitude < 0.2f)
+        {
+            if (currentIndex < points.Length - 1) // Dizi boyutunu kontrol edin.
+            {
+                currentIndex++;
+                transform.LookAt(points[currentIndex]);
+            }
+            else
+            {
+                rb.useGravity = true;
+            }
+        }
     }
 
-    private void OnTriggerStay(Collider other)
-    {
-        if (other.GetComponent<health>()!=null&& Time.time>damaget)
-        {
-            other.GetComponent<health>().Damage(damagethrow);
-            damaget = Time.time + .3f;
-        }
-    }
+
+    // private void OnTriggerStay(Collider other)
+    // {
+    //     if (other.GetComponent<health>()!=null&& Time.time>damaget)
+    //     {
+    //         other.GetComponent<health>().Damage(damagethrow);
+    //         damaget = Time.time + .3f;
+    //     }
+    // }
 
     private void OnCollisionEnter(Collision other)
     {

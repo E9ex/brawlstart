@@ -7,6 +7,8 @@ TagManager:
   - enemy
   - attacktrialthrow
   - attacktrialshooting
+  - Enemyy
+  - bulletshoot
   layers:
   - Default
   - TransparentFX
