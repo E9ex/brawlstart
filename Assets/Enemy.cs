@@ -12,9 +12,11 @@ public class Enemy : MonoBehaviour
   //  private Transform enemy;
     private Animator forwardsandbackwards;
     public GameObject deathExp;
-    [SerializeField] private GameObject[] waypoints;//waypoints dizisi objelerin hareket edeceği noktaları tutacak.
+    [SerializeField] private Transform[] waypoints;//waypoints dizisi objelerin hareket edeceği noktaları tutacak.
     private int currentWayPointIndex = 0; // waypoints dizisindeki o anki hedef noktanın index numarasını tutar.
     [SerializeField] private float speed = 2f;//waypoints üzerinde hareket eden objelerin hızını tutacak.
+    private bool isGoingForward = true;
+
 
     private void Awake()
     {
@@ -31,19 +33,50 @@ public class Enemy : MonoBehaviour
  
     void Update()
     {
-        Vector3 targetPosition = new Vector3(waypoints[currentWayPointIndex].transform.position.x, waypoints[currentWayPointIndex].transform.position.y, transform.position.z);
-
-        if (Vector2.Distance(new Vector2(targetPosition.x, targetPosition.y), new Vector2(transform.position.x, transform.position.y)) < 0.1f)
+        if (waypoints.Length == 0)
         {
-            currentWayPointIndex++;
-
-            if (currentWayPointIndex >= waypoints.Length)
-            {
-                currentWayPointIndex = 0;
-            }
+            return;
         }
 
+        Vector3 targetPosition = waypoints[currentWayPointIndex].position;
+
+        float distanceToWaypoint = Vector3.Distance(transform.position, targetPosition);
+
+        if (distanceToWaypoint < 0.1f)
+        {
+            if (isGoingForward)
+            {
+                currentWayPointIndex++;
+                if (currentWayPointIndex >= waypoints.Length)
+                {
+                    currentWayPointIndex = waypoints.Length - 2;
+                    isGoingForward = false;
+                }
+            }
+            else
+            {
+                currentWayPointIndex--;
+                if (currentWayPointIndex < 0)
+                {
+                    currentWayPointIndex = 1;
+                    isGoingForward = true;
+                }
+            }
+        }
         transform.position = Vector3.MoveTowards(transform.position, targetPosition, Time.deltaTime * speed);
+        // Vector3 targetPosition = new Vector3(waypoints[currentWayPointIndex].transform.position.x, waypoints[currentWayPointIndex].transform.position.y, transform.position.z);
+        //
+        // if (Vector2.Distance(new Vector2(targetPosition.x, targetPosition.y), new Vector2(transform.position.x, transform.position.y)) < 0.1f)
+        // {
+        //     currentWayPointIndex++;
+        //
+        //     if (currentWayPointIndex >= waypoints.Length)
+        //     {
+        //         currentWayPointIndex = 0;
+        //     }
+        // }
+        //
+        // transform.position = Vector3.MoveTowards(transform.position, targetPosition, Time.deltaTime * speed);
     }
 
     public void takedamage(int damage)
