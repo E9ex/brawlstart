@@ -33,20 +33,20 @@ public class Playerattack_Throw : MonoBehaviour
             transform.LookAt(new Vector3(attacklookat.position.x,0,attacklookat.position.z));
             transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
             
-            lr.SetPosition(0,new Vector3(transform.position.x,transform.position.y+1,transform.position.z));//başlangıç noktasını 0. pozisyonunu nesnenin mevcut konumuna ayarlar
+            lr.SetPosition(0,-new Vector3(transform.position.x,transform.position.y+1,transform.position.z));//başlangıç noktasını 0. pozisyonunu nesnenin mevcut konumuna ayarlar
             
-            // for (int i = 1; i < 10; i++)
-            // {
-            //     float yOffset = i == 1 ? 0.3f : Mathf.Cos(linepower_y * (i * 0.1f)) * (i * 0.04f);
-            //     lr.SetPosition(i, new Vector3(lr.GetPosition(i - 1).x + attackjoystick.Horizontal, 0.1f + yOffset, lr.GetPosition(i - 1).z + attackjoystick.Vertical));
-            // }
             for (int i = 1; i < 10; i++)
             {
-                float x = lr.GetPosition(i - 1).x + attackjoystick.Horizontal;
-                float z = lr.GetPosition(i - 1).z + attackjoystick.Vertical;
-                float y = Mathf.Sin(linepower_y * (i * 0.1f)) * (i * 0.4f); // Sinus fonksiyonunu kullanarak yüksekliği ayarlayın
-                lr.SetPosition(i, new Vector3(x, 0.1f + y, z));
+                float yOffset = i == 1 ? 0.3f : Mathf.Cos(linepower_y * (i * 0.1f)) * (i * 0.04f);
+                lr.SetPosition(i, new Vector3(lr.GetPosition(i - 1).x + attackjoystick.Horizontal, 0.1f + yOffset, lr.GetPosition(i - 1).z + attackjoystick.Vertical));
             }
+            // for (int i = 1; i < 10; i++)
+            // {
+            //     float x = lr.GetPosition(i - 1).x + attackjoystick.Horizontal;
+            //     float z = lr.GetPosition(i - 1).z + attackjoystick.Vertical;
+            //     float y = Mathf.Sin(linepower_y * (i * 0.1f)) * (i * 0.4f); // Sinus fonksiyonunu kullanarak yüksekliği ayarlayın
+            //     lr.SetPosition(i, new Vector3(x, 0.1f + y, z));
+            // }
 
 
             // for (int i = 1; i < 10; i++)

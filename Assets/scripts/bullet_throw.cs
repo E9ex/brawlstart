@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class bullet_throw : MonoBehaviour
 {
-    [SerializeField]private Playerattack_Throw pa;
+    private Playerattack_Throw pa;
     private Vector3[] points;
     private Rigidbody rb;
     [SerializeField] private float speed;
@@ -16,6 +16,7 @@ public class bullet_throw : MonoBehaviour
     private float damaget;
     private void Awake()
     {
+        pa = GetComponent<Playerattack_Throw>();
         transform.position += transform.forward * .5f;
         
     }
@@ -60,18 +61,18 @@ public class bullet_throw : MonoBehaviour
     //     }
     // }
 
-    private void OnCollisionEnter(Collision other)
-    {
-        if (other.transform.tag=="enemy")
-        {
-            Destroy(this.gameObject);
-        }
-        else
-        {
-            sphereCollider.isTrigger = true;
-            StartCoroutine(Destroythis());
-        }
-    }
+    // private void OnCollisionEnter(Collision other)
+    // {
+    //     if (other.transform.tag=="enemy")
+    //     {
+    //         Destroy(this.gameObject);
+    //     }
+    //     else
+    //     {
+    //        // sphereCollider.isTrigger = true;
+    //         StartCoroutine(Destroythis());
+    //     }
+    // }
     
 
     IEnumerator Destroythis()
