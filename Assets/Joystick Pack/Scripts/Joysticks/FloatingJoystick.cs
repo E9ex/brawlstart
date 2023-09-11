@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class FloatingJoystick : Joystick
+public partial class FloatingJoystick : Joystick
 {
     [SerializeField] private Transform player;
     private string shoottype;

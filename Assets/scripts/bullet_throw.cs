@@ -26,7 +26,6 @@ public class bullet_throw : MonoBehaviour
      
         sphereCollider = GetComponent<SphereCollider>();
         points = new Vector3[9];
-        pa.bulletPoints.CopyTo(points,0);
         rb = transform.GetComponent<Rigidbody>();
     }
 
