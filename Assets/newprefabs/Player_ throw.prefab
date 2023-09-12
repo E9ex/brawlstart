@@ -2038,7 +2038,7 @@ MonoBehaviour:
   player: {fileID: 5353044378929863578}
   bullet: {fileID: 8819749104400142093, guid: 6a1c9fe0f372f4b46b2822c7c4a412a9, type: 3}
   bulletPoints: []
-  linepower_y: 1
+  linepower_y: 2
 --- !u!1 &7935590688584595343
 GameObject:
   m_ObjectHideFlags: 0
