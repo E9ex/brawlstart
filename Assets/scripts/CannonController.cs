@@ -11,8 +11,8 @@ public class CannonController : MonoBehaviour
     [SerializeField]
     Transform firePoint;
 
-    [SerializeField]
-    Transform smokePuffPoint;
+    // [SerializeField]
+    // Transform smokePuffPoint;
 
     [SerializeField]
     Animation anim;
@@ -79,9 +79,15 @@ public class CannonController : MonoBehaviour
         if (Time.time > lastShotTime + cooldown)
         {
             GameObject p = Instantiate(projectilePrefab, firePoint.position, Quaternion.identity);
+            
+            if(p.TryGetComponent(out CannonBall script))
+                script.SetTag(tag);
+            
             p.GetComponent<Rigidbody>().velocity = turret.up * currentSpeed;
 
-            Instantiate(cannonFirePrefab, smokePuffPoint.position, Quaternion.LookRotation(turret.up));
+            
+
+            // Instantiate(cannonFirePrefab, smokePuffPoint.position, Quaternion.LookRotation(turret.up));
 
             lastShotTime = Time.time;
             lastShotTimeOfFlight = currentTimeOfFlight;

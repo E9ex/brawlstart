@@ -882,7 +882,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2863837412994557812}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.872, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1098,7 +1098,7 @@ Projector:
   m_FieldOfView: 60
   m_AspectRatio: 1
   m_Orthographic: 1
-  m_OrthographicSize: 2
+  m_OrthographicSize: 0.25
   m_Material: {fileID: 2100000, guid: b8f51d7248a762e488cbefe67cb1d3eb, type: 2}
   m_IgnoreLayers:
     serializedVersion: 2
@@ -1149,7 +1149,7 @@ GameObject:
   - component: {fileID: 8045314494536325338}
   m_Layer: 0
   m_Name: Projectile
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1161,7 +1161,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2863837413465761327}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 2.62, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1169,8 +1169,8 @@ Transform:
   - {fileID: 2863837413382023162}
   - {fileID: 2863837412419201416}
   - {fileID: 2863837412994557818}
-  m_Father: {fileID: 8313206915151240048}
-  m_RootOrder: 4
+  m_Father: {fileID: 5353044378929863578}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6360538486944742483
 MonoBehaviour:
@@ -1187,7 +1187,6 @@ MonoBehaviour:
   cannonBase: {fileID: 2863837413382191222}
   turret: {fileID: 2863837413382191208}
   firePoint: {fileID: 2863837412994742736}
-  smokePuffPoint: {fileID: 2863837413382191212}
   anim: {fileID: 0}
   projectilePrefab: {fileID: 1064837188299154, guid: 25adf2675fb5e4f49bcf0053ccd0c32a, type: 3}
   cannonFirePrefab: {fileID: 1770111890754330, guid: 8021a85b057010c4485b9d1367c07804, type: 3}
@@ -1700,6 +1699,7 @@ Transform:
   - {fileID: 5655183893322916468}
   - {fileID: 8050757470046591157}
   - {fileID: 439531203340172046}
+  - {fileID: 2863837413465761326}
   m_Father: {fileID: 8313206915151240048}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1735,13 +1735,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2342489026b047d1829230756f8257c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  joystick: {fileID: 267410189921359406}
+  leftJoystick: {fileID: 267410189921359406}
+  rightJoystick: {fileID: 6627252230408527396}
   playersprite: {fileID: 8313206915532257351}
   anim: {fileID: 5249820308987145707}
   Velocity: 0
   speed: 5
   animforvelo: 0
   Acceleration: 1
+  inputIsJoystick: 1
 --- !u!136 &5240986493885500751
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -2662,7 +2664,6 @@ Transform:
   - {fileID: 5353044378929863578}
   - {fileID: 800420742262903412}
   - {fileID: 1861770228327682042}
-  - {fileID: 2863837413465761326}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3390,6 +3391,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cannon
       objectReference: {fileID: 0}
+    - target: {fileID: 100006, guid: 49d4ad4326ec54147a7197861f829f59, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 100008, guid: 49d4ad4326ec54147a7197861f829f59, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -3465,56 +3470,9 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 11100000, guid: 49d4ad4326ec54147a7197861f829f59, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 49d4ad4326ec54147a7197861f829f59, type: 3}
---- !u!1 &2863837413381891166 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 100006, guid: 49d4ad4326ec54147a7197861f829f59, type: 3}
-  m_PrefabInstance: {fileID: 2863837413381792504}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2863837413381792482
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2863837413381891166}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 192b86b20cb39c34b80ee87cb49c606d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cannonBase: {fileID: 2863837413382191222}
-  turret: {fileID: 2863837413382191208}
-  firePoint: {fileID: 2863837412994742736}
-  smokePuffPoint: {fileID: 2863837413382191212}
-  anim: {fileID: 0}
-  projectilePrefab: {fileID: 1064837188299154, guid: 25adf2675fb5e4f49bcf0053ccd0c32a, type: 3}
-  cannonFirePrefab: {fileID: 1770111890754330, guid: 8021a85b057010c4485b9d1367c07804, type: 3}
-  projectileArc: {fileID: 2863837412994557817}
-  cooldown: 0.15
---- !u!114 &4173977688193973968
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2863837413381891166}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b3038adc1fba9444a990cfe1f5f6b67, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targetCursor: {fileID: 2863837412419201417}
-  cannon: {fileID: 2863837413381792482}
-  defaultFireSpeed: 35
-  defaultFireAngle: 45
 --- !u!4 &2863837413382191208 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400016, guid: 49d4ad4326ec54147a7197861f829f59, type: 3}
-  m_PrefabInstance: {fileID: 2863837413381792504}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &2863837413382191212 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 400020, guid: 49d4ad4326ec54147a7197861f829f59, type: 3}
   m_PrefabInstance: {fileID: 2863837413381792504}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &2863837413382191222 stripped
