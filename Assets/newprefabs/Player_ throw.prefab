@@ -1205,6 +1205,7 @@ GameObject:
   - component: {fileID: 5249820308987145707}
   - component: {fileID: 5240986493885500750}
   - component: {fileID: 5240986493885500751}
+  - component: {fileID: 4225406655787000747}
   m_Layer: 0
   m_Name: player
   m_TagString: Player
@@ -1265,6 +1266,10 @@ MonoBehaviour:
   joystick: {fileID: 267410189921359406}
   playersprite: {fileID: 8313206915532257351}
   anim: {fileID: 5249820308987145707}
+  Velocity: 0
+  speed: 5
+  animforvelo: 0
+  Acceleration: 1
 --- !u!136 &5240986493885500751
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1274,11 +1279,29 @@ CapsuleCollider:
   m_GameObject: {fileID: 4684312252641460512}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.5
   m_Height: 1.8899658
   m_Direction: 1
   m_Center: {x: 0, y: 0.81100595, z: 0}
+--- !u!143 &4225406655787000747
+CharacterController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4684312252641460512}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Height: 2
+  m_Radius: 0.5
+  m_SlopeLimit: 1
+  m_StepOffset: 0
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!1 &4811652418038506107
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class playermovement : MonoBehaviour
@@ -14,44 +15,48 @@ public class playermovement : MonoBehaviour
     
     [Header("anim")]
     public float animforvelo=0.0f;
-    public float Acceleration = .1f;
-    private int velocityhash;
-    
-    
+    public float Acceleration = 1;
+    private int velocityhash = Animator.StringToHash("Velocity");
+
+    CharacterController characterController;
+
+    private void Awake()
+    {
+        characterController = GetComponent<CharacterController>();
+    }
+
+
     void Start()
     {
-        playersprite.gameObject.SetActive(false);
+        // playersprite.gameObject.SetActive(false);
         M_Camera.I.StartCamera(transform);
-        velocityhash = Animator.StringToHash("Velocityy");
+        lastPosition = transform.position;
+        playersprite.gameObject.SetActive(true);
     }
 
     void CalculateVelocity()
     {
-        var position = transform.position;
-        Velocity = (position - lastPosition).magnitude;
-        lastPosition = position;
+        Velocity = characterController.velocity.magnitude;
     }
-    
-    
 
     // Update is called once per frame
     void Update()
     {
         if (joystick.Horizontal > 0 || joystick.Horizontal < 0 || joystick.Vertical > 0 || joystick.Vertical < 0)
         {
-            playersprite.gameObject.SetActive(true);
             playersprite.position = new Vector3(joystick.Horizontal + transform.position.x, .1f,
                 joystick.Vertical + transform.position.z);
             transform.LookAt(new Vector3(playersprite.position.x, 0, playersprite.position.z));
             transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
-            transform.Translate(Vector3.forward * Time.deltaTime * 5);
-
-            Velocity += Time.deltaTime * Acceleration;
-            anim.SetFloat(velocityhash, animforvelo);
         }
+        
+        Vector3 moveDirection = new Vector3(joystick.Horizontal, 0.0f, joystick.Vertical);
 
+        if (moveDirection.magnitude > 1)
+            moveDirection.Normalize();
+        characterController.Move(moveDirection * speed * Time.deltaTime);
+        
         CalculateVelocity();
-        
-        
+        anim.SetFloat( velocityhash, Velocity);
     }
 }
