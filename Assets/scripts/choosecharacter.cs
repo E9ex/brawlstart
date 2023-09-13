@@ -14,6 +14,8 @@ public class choosecharacter : MonoBehaviour
     {
         Instantiate(shootingmanprefab, playerSpawnPoint.transform.position,playerSpawnPoint.transform.rotation);
         lobbycanvas.enabled = false;
+        
+        M_GameManager.I.LevelStart();
        
     }
     public void ButtonThrownMan()
@@ -21,6 +23,6 @@ public class choosecharacter : MonoBehaviour
         Instantiate(Throwmanprefab, playerSpawnPoint.transform.position,playerSpawnPoint.transform.rotation);
         lobbycanvas.enabled = false;
         
-
+        M_GameManager.I.LevelStart();
     }
 }

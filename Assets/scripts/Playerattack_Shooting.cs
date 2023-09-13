@@ -14,6 +14,8 @@ public class Playerattack_Shooting : MonoBehaviour
     private bool shoot;
     [SerializeField] private Transform bullet;
     // Update is called once per frame
+
+
     void Update()
     {
         if (Mathf.Abs(attackjoystick.Horizontal)>.5f || Mathf.Abs(attackjoystick.Vertical)>.5f)

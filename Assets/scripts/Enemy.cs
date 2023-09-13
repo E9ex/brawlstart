@@ -1,7 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using DG.Tweening;
 using UnityEngine;
 using UnityEngine.AI;
 using Random = UnityEngine.Random;
@@ -21,6 +17,15 @@ public class Enemy : MonoBehaviour
     private bool movement;
 
     public Transform centrePoint;
+
+    Vector3 lastPosition;
+    Vector3 currentPosition;
+    public float velocity;
+    public float velocityLimit = .05f;
+    private static readonly int Velocity = Animator.StringToHash("velocity");
+
+    bool isGameStarted = false;
+
     private void Awake()
     {
         forwardsandbackwards = GetComponent<Animator>();
@@ -32,26 +37,54 @@ public class Enemy : MonoBehaviour
     {
         currenthealth = maxhealth;
         healthbar.setmaxhealth(maxhealth);
+
+        agent.isStopped = true;
+
+        M_GameManager.I.onLevelStart += GameStart;
+        M_GameManager.I.onLevelEnd += GameEnd;
+        
     }
+
+    #region Game
+
+    void GameStart()
+    {
+        isGameStarted = true;
+        agent.isStopped = false;
+    }
+
+    void GameEnd()
+    {
+        isGameStarted = false;
+        agent.isStopped = true;
+    }
+
+    #endregion
 
  
     void Update()
     {
-        if (agent.remainingDistance <= agent.stoppingDistance) 
-        {
-            Vector3 point;
-            if (RandomPoint(centrePoint.position, range, out point)) 
+        
+        if(!agent.isStopped)        
+            if (agent.remainingDistance <= agent.stoppingDistance) 
             {
-                Debug.DrawRay(point, Vector3.up, Color.blue, 1.0f); 
-                agent.SetDestination(point);
-
-               
-                if (!anim.GetBool("walkingg"))
+                Vector3 point;
+                if (RandomPoint(centrePoint.position, range, out point)) 
                 {
-                    anim.SetBool("walkingg", true);
+                    Debug.DrawRay(point, Vector3.up, Color.blue, 1.0f); 
+                    agent.SetDestination(point);
                 }
             }
-        }
+        
+        CalculateVelocity();
+        
+        if(velocity > velocityLimit)
+            anim.SetFloat(Velocity,velocity);
+    }
+
+    void CalculateVelocity()
+    {
+        velocity = agent.velocity.magnitude;
     }
 
     bool RandomPoint(Vector3 center, float range, out Vector3 result)
