@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class playermovement : MonoBehaviour, PointerEventData
+public class playermovement : MonoBehaviour
 {
     [SerializeField] private Joystick leftJoystick;
     [SerializeField] private Joystick rightJoystick;
@@ -72,9 +72,6 @@ public class playermovement : MonoBehaviour, PointerEventData
         
         CalculateVelocity();
         anim.SetFloat( velocityhash, Velocity);
-        
-        rightJoystick.OnPointerUp();
-
     }
     public void OnDrag(PointerEventData ped)
     {
