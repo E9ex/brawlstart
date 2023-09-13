@@ -63,7 +63,7 @@ public class Playerattack_Shooting : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("çalişiyor musun");
+      
         if (CompareTag("enemy"))
         {
             other.transform.GetComponent<Enemy>().takedamage(20);
@@ -71,9 +71,6 @@ public class Playerattack_Shooting : MonoBehaviour
         }else
         {
             Destroy(this.gameObject);
-            Debug.Log("hooopopoppo");
         }
-
-       
     }
 }

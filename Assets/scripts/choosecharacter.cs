@@ -12,13 +12,13 @@ public class choosecharacter : MonoBehaviour
 
     public void buttonShootingman()
     {
-        Instantiate(shootingmanprefab, playerSpawnPoint);
+        Instantiate(shootingmanprefab, playerSpawnPoint.transform.position,playerSpawnPoint.transform.rotation);
         lobbycanvas.enabled = false;
        
     }
     public void ButtonThrownMan()
     {
-        Instantiate(Throwmanprefab, playerSpawnPoint);
+        Instantiate(Throwmanprefab, playerSpawnPoint.transform.position,playerSpawnPoint.transform.rotation);
         lobbycanvas.enabled = false;
         
 
