@@ -13299,7 +13299,7 @@ GameObject:
   - component: {fileID: 1945305530}
   - component: {fileID: 1945305529}
   - component: {fileID: 1945305528}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Plane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14841,4 +14841,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  offset: {x: 0, y: 4.53, z: -4.06}
+  offset: {x: 0, y: 9, z: -8}
