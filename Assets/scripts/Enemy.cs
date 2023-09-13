@@ -45,7 +45,7 @@ public class Enemy : MonoBehaviour
                 Debug.DrawRay(point, Vector3.up, Color.blue, 1.0f); 
                 agent.SetDestination(point);
 
-                // Eğer karakter yürümüyorsa animasyonu başlat
+               
                 if (!anim.GetBool("walkingg"))
                 {
                     anim.SetBool("walkingg", true);
