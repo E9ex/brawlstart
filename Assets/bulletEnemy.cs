@@ -14,7 +14,11 @@ public class bulletEnemy : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-        Destroy(other.gameObject);
+        if (other.gameObject.CompareTag("enemy"))
+        {
+            Destroy(other.gameObject);
+        }
+    
         Destroy(gameObject);
     }
 }
