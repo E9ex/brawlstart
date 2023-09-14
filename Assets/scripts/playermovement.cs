@@ -9,6 +9,7 @@ public class playermovement : MonoBehaviour
     [SerializeField] private Transform playersprite;
     [SerializeField] private Animator anim;
     private bool movement;
+    public float moveSpeed = 5f;
 
     public float Velocity;
     
@@ -46,33 +47,53 @@ public class playermovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(inputIsJoystick)
-        {
-            if (leftJoystick.Horizontal > 0 || leftJoystick.Horizontal < 0 || leftJoystick.Vertical > 0 || leftJoystick.Vertical < 0)
-            {
-                playersprite.position = new Vector3(leftJoystick.Horizontal + transform.position.x, .1f,
-                    leftJoystick.Vertical + transform.position.z);
-                transform.LookAt(new Vector3(playersprite.position.x, 0, playersprite.position.z));
-                transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
-            }
 
-            Vector3 moveDirection = new Vector3(leftJoystick.Horizontal, 0.0f, leftJoystick.Vertical);
+        if (inputIsJoystick)
+        { 
+            #region KlavyeInput
+            float horizontalInput = Input.GetAxis("Horizontal");
+            float verticalInput = Input.GetAxis("Vertical");
 
+            Vector3 movement = new Vector3(horizontalInput, 0f, verticalInput) * moveSpeed * Time.deltaTime;
+            transform.Translate(movement);
+            Vector3 moveDirection = new Vector3(horizontalInput, 0.0f, verticalInput);
             if (moveDirection.magnitude > 1)
                 moveDirection.Normalize();
             characterController.Move(moveDirection * speed * Time.deltaTime);
+            #endregion
+          
+            //     if (leftJoystick.Horizontal > 0 || leftJoystick.Horizontal < 0 || leftJoystick.Vertical > 0 || leftJoystick.Vertical < 0)
+            //     {
+            //         playersprite.position = new Vector3(leftJoystick.Horizontal + transform.position.x, .1f,
+            //             leftJoystick.Vertical + transform.position.z);
+            //         transform.LookAt(new Vector3(playersprite.position.x, 0, playersprite.position.z));
+            //         transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
+            //     }
+            //
+            //     Vector3 moveDirection = new Vector3(leftJoystick.Horizontal, 0.0f, leftJoystick.Vertical);
+            //
+            //     if (moveDirection.magnitude > 1)
+            //         moveDirection.Normalize();
+            //     characterController.Move(moveDirection * speed * Time.deltaTime);
+            // }
+            // else
+            // {
+            //     // //KLAVYE İLE HAREKET BURDA
+            //     float horizontalInput = Input.GetAxis("Horizontal");
+            //     float verticalInput = Input.GetAxis("Vertical");
+            //     
+            //     Vector3 movement = new Vector3(horizontalInput, 0f, verticalInput) * moveSpeed * Time.deltaTime;
+            //     transform.Translate(movement);
+            //     
+            //     //characterController.Move(moveDirection * speed * Time.deltaTime);
+            // }
+
+            CalculateVelocity();
+            anim.SetFloat(velocityhash, Velocity);
         }
-        else
-        {
-            //KLAVYE İLE HAREKET BURDA
-            
-            
-            //characterController.Move(moveDirection * speed * Time.deltaTime);
-        }
-        
-        CalculateVelocity();
-        anim.SetFloat( velocityhash, Velocity);
     }
+    
+
     public void OnDrag(PointerEventData ped)
     {
         //move joystick        
