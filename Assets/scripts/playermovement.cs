@@ -8,6 +8,9 @@ public class playermovement : MonoBehaviour
     [SerializeField] private Joystick rightJoystick;
     [SerializeField] private Transform playersprite;
     [SerializeField] private Animator anim;
+    private playerhealthbar Playerhealthbar;
+    public int maxhealth = 100;
+    public int currenthealth;
     private bool movement;
     public float moveSpeed = 5f;
 
@@ -27,12 +30,15 @@ public class playermovement : MonoBehaviour
     
     private void Awake()
     {
+        Playerhealthbar = GetComponent<playerhealthbar>();
         characterController = GetComponent<CharacterController>();
     }
 
 
     void Start()
     {
+        currenthealth = maxhealth;
+        Playerhealthbar.setmaxhealth(maxhealth);
         // playersprite.gameObject.SetActive(false);
         M_Camera.I.StartCamera(transform);
         lastPosition = transform.position;
@@ -108,6 +114,21 @@ public class playermovement : MonoBehaviour
     public void OnPointerUp(PointerEventData ped)
     {
         //reset joystick
+    }
+    public void takedamage(int damage)
+    {
+        currenthealth -= damage;
+        Playerhealthbar.sethealth(currenthealth);
+
+        if (currenthealth <= 0)
+        {
+            Die();
+        }
+    }
+    void Die()
+    {
+        Destroy(gameObject);
+       // Instantiate(deathExp, transform.position, Quaternion.identity);
     }
     
 }

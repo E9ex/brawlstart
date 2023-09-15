@@ -9,9 +9,6 @@ public class bullet_shooting : MonoBehaviour
     private Vector3 bulletenddist;
     [SerializeField] private float speed;
     private int damagep = 20;
-
-    
-
     private void Awake()
     {
         transform.position += transform.forward * .5f;
