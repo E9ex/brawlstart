@@ -13,8 +13,8 @@ public class gun : MonoBehaviour
    public GameObject bulletprefab;
    public float bulletspeed = 10f;
    public float rotationSpeed = 20f; 
-   public float fireInterval = 2f; // Ateş etme aralığı
-   private float timeSinceLastFire = 0f;// Dönme hızı
+   public float fireInterval = .5f; 
+   private float timeSinceLastFire = 0f;
 
 
    private void Update()
@@ -39,8 +39,8 @@ public class gun : MonoBehaviour
          timeSinceLastFire += Time.deltaTime;
          if (timeSinceLastFire >= fireInterval)
          {
-            Fire(); // Ateş etme işlevini çağır
-            timeSinceLastFire = 0f; // Zamanı sıfırla
+            Fire(); 
+            timeSinceLastFire = 0f; 
          }
       }
    }
