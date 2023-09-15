@@ -9,8 +9,8 @@ public class playermovement : MonoBehaviour
     [SerializeField] private Transform playersprite;
     [SerializeField] private Animator anim;
     private playerhealthbar Playerhealthbar;
-    public int maxhealth = 100;
-    public int currenthealth;
+    public float Maxhealth = 100;
+    public float Currenthealth;
     private bool movement;
     public float moveSpeed = 5f;
 
@@ -27,18 +27,19 @@ public class playermovement : MonoBehaviour
     CharacterController characterController;
 
     public bool inputIsJoystick = true;
+   // public static  playermovement ınstance;
     
     private void Awake()
     {
-        Playerhealthbar = GetComponent<playerhealthbar>();
+        //ınstance = this;
         characterController = GetComponent<CharacterController>();
     }
 
 
     void Start()
     {
-        currenthealth = maxhealth;
-        Playerhealthbar.setmaxhealth(maxhealth);
+        Currenthealth = Maxhealth;
+       //Playerhealthbar.Setmaxhealth(Maxhealth);
         // playersprite.gameObject.SetActive(false);
         M_Camera.I.StartCamera(transform);
         lastPosition = transform.position;
@@ -115,12 +116,11 @@ public class playermovement : MonoBehaviour
     {
         //reset joystick
     }
-    public void takedamage(int damage)
+    public void takedamage(float damage)
     {
-        currenthealth -= damage;
-        Playerhealthbar.sethealth(currenthealth);
-
-        if (currenthealth <= 0)
+        Currenthealth -= damage;
+        //Playerhealthbar.Sethealth(Currenthealth);
+        if (Currenthealth <= 0)
         {
             Die();
         }
@@ -130,5 +130,14 @@ public class playermovement : MonoBehaviour
         Destroy(gameObject);
        // Instantiate(deathExp, transform.position, Quaternion.identity);
     }
-    
+
+    private void IncreasemoveSpeed()
+    {
+        moveSpeed += 10f;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        
+    }
 }
