@@ -22,7 +22,7 @@ public class bulletEnemy : MonoBehaviour
             playermovement playermovement = other.transform.GetComponent<playermovement>();
             if (playermovement != null)
             {
-                playermovement.takedamage(20f);
+                playermovement.takedamage(20);
                 Destroy(gameObject);
             }
 

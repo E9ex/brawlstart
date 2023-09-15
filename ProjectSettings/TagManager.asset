@@ -10,6 +10,7 @@ TagManager:
   - Enemyy
   - bulletshoot
   - movespeedextra
+  - bulletenemy
   layers:
   - Default
   - TransparentFX

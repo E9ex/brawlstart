@@ -10,8 +10,8 @@ public class playermovement : MonoBehaviour
     [SerializeField] private Transform playersprite;
     [SerializeField] private Animator anim;
     private playerhealthbar Playerhealthbar;
-    public float Maxhealth = 100;
-    public float Currenthealth;
+    public int Maxhealth = 100;
+    public int Currenthealth;
     private bool movement;
     public float moveSpeed = 10f;
 
@@ -26,6 +26,7 @@ public class playermovement : MonoBehaviour
     private int velocityhash = Animator.StringToHash("Velocity");
 
     CharacterController characterController;
+    public healtbarforplayers healtbarforplayers;
 
     public bool inputIsJoystick = true;
 
@@ -38,7 +39,7 @@ public class playermovement : MonoBehaviour
     void Start()
     {
         Currenthealth = Maxhealth;
-     //  Playerhealthbar.Setmaxhealth(Maxhealth);
+        healtbarforplayers.setmaximumhealth(Maxhealth);
         // playersprite.gameObject.SetActive(false);
         M_Camera.I.StartCamera(transform);
         lastPosition = transform.position;
@@ -115,9 +116,11 @@ public class playermovement : MonoBehaviour
     {
         //reset joystick
     }
-    public void takedamage(float damage)
+    
+    public void takedamage(int damage)
     {
         Currenthealth -= damage;
+        healtbarforplayers.SetHealthh(Currenthealth);
         if (Currenthealth <= 0)
         {
             Die();
@@ -141,5 +144,6 @@ public class playermovement : MonoBehaviour
             Destroy(other.gameObject);
             IncreasemoveSpeed();
         }
+        
     }
 }
