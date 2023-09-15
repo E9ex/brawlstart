@@ -9,6 +9,7 @@ TagManager:
   - attacktrialshooting
   - Enemyy
   - bulletshoot
+  - movespeedextra
   layers:
   - Default
   - TransparentFX

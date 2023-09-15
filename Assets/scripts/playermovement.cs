@@ -2,6 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
+
 public class playermovement : MonoBehaviour
 {
     [SerializeField] private Joystick leftJoystick;
@@ -12,7 +13,7 @@ public class playermovement : MonoBehaviour
     public float Maxhealth = 100;
     public float Currenthealth;
     private bool movement;
-    public float moveSpeed = 5f;
+    public float moveSpeed = 10f;
 
     public float Velocity;
     
@@ -138,6 +139,10 @@ public class playermovement : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        
+        if (other.gameObject.CompareTag("movespeedextra"))
+        {
+            Destroy(other.gameObject);
+            IncreasemoveSpeed();
+        }
     }
 }
