@@ -28,11 +28,9 @@ public class playermovement : MonoBehaviour
     CharacterController characterController;
 
     public bool inputIsJoystick = true;
-   // public static  playermovement ınstance;
-    
+
     private void Awake()
     {
-        //ınstance = this;
         characterController = GetComponent<CharacterController>();
     }
 
@@ -40,7 +38,7 @@ public class playermovement : MonoBehaviour
     void Start()
     {
         Currenthealth = Maxhealth;
-       //Playerhealthbar.Setmaxhealth(Maxhealth);
+     //  Playerhealthbar.Setmaxhealth(Maxhealth);
         // playersprite.gameObject.SetActive(false);
         M_Camera.I.StartCamera(transform);
         lastPosition = transform.position;
@@ -120,7 +118,6 @@ public class playermovement : MonoBehaviour
     public void takedamage(float damage)
     {
         Currenthealth -= damage;
-        //Playerhealthbar.Sethealth(Currenthealth);
         if (Currenthealth <= 0)
         {
             Die();

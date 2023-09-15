@@ -106,7 +106,6 @@ public class Enemy : MonoBehaviour
     {
         currenthealth -= damage;
         healthbar.sethealth(currenthealth);
-
         if (currenthealth <= 0)
         {
             Die();
