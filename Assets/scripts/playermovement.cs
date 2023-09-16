@@ -28,10 +28,7 @@ public class playermovement : MonoBehaviour
 
     CharacterController characterController;
     public healtbarforplayers healtbarforplayers;
-
     public bool inputIsJoystick = true;
-    
-    
     [Header("movespeed")]
     public bool isIncreasingMoveSpeed = false;
     public float initialMoveSpeed = 10f;
@@ -39,9 +36,10 @@ public class playermovement : MonoBehaviour
     public float duration = 10f;
     public float timer = 0f;
     public GameObject Shoes;
-
+    private UImanager uImanager;
     private void Awake()
     {
+        uImanager = GetComponent<UImanager>();
         characterController = GetComponent<CharacterController>();
     }
 
@@ -150,6 +148,7 @@ public class playermovement : MonoBehaviour
     void Die()
     {
         Destroy(gameObject);
+        uImanager.setyoulosetxt();
         Instantiate(deathExp, transform.position, Quaternion.identity);
     }
 

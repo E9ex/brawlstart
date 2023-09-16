@@ -3872,7 +3872,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &673542184
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7985,7 +7985,7 @@ MonoBehaviour:
   shootingmanprefab: {fileID: 4565297295210868911, guid: 4c9afec8ad1754cb4bc8779ccafc6154, type: 3}
   Throwmanprefab: {fileID: 8313206915151240047, guid: 4b755341e7bfd41559986cc56e1a84da, type: 3}
   playerSpawnPoint: {fileID: 1323198443}
-  lobbycanvas: {fileID: 673542186}
+  lobbycanvas: {fileID: 1611229296}
 --- !u!4 &1323198443
 Transform:
   m_ObjectHideFlags: 0
@@ -10686,7 +10686,7 @@ GameObject:
   - component: {fileID: 1611229299}
   - component: {fileID: 1611229298}
   m_Layer: 5
-  m_Name: Panel
+  m_Name: startPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -25,9 +25,11 @@ public class Enemy : MonoBehaviour
     private static readonly int Velocity = Animator.StringToHash("velocity");
 
     bool isGameStarted = false;
+    private UImanager uImanager;
 
     private void Awake()
     {
+        uImanager = GetComponent<UImanager>();
         forwardsandbackwards = GetComponent<Animator>();
         agent = GetComponent<NavMeshAgent>();
         //  enemy = GetComponent<Transform>();
@@ -85,7 +87,7 @@ public class Enemy : MonoBehaviour
     void CalculateVelocity()
     {
         velocity = agent.velocity.magnitude;
-        Debug.Log("ENEMY VELOCITY " + velocity);
+        //Debug.Log("ENEMY VELOCITY " + velocity);
     }
 
     bool RandomPoint(Vector3 center, float range, out Vector3 result)
@@ -116,6 +118,7 @@ public class Enemy : MonoBehaviour
     {
         Destroy(gameObject);
         Instantiate(deathExp, transform.position, Quaternion.identity);
+        uImanager.setyoulosetxt();
     }
    
 

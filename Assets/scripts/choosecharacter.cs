@@ -7,13 +7,13 @@ public class choosecharacter : MonoBehaviour
     [SerializeField]private GameObject shootingmanprefab;
     [SerializeField] private GameObject Throwmanprefab;
     [SerializeField] private Transform playerSpawnPoint;
-    [SerializeField] private Canvas lobbycanvas;
+    [SerializeField] private GameObject lobbycanvas;
     
 
     public void buttonShootingman()
     {
         Instantiate(shootingmanprefab, playerSpawnPoint.transform.position,playerSpawnPoint.transform.rotation);
-        lobbycanvas.enabled = false;
+        lobbycanvas.gameObject.SetActive(false);
         
         M_GameManager.I.LevelStart();
        
@@ -21,7 +21,7 @@ public class choosecharacter : MonoBehaviour
     public void ButtonThrownMan()
     {
         Instantiate(Throwmanprefab, playerSpawnPoint.transform.position,playerSpawnPoint.transform.rotation);
-        lobbycanvas.enabled = false;
+        lobbycanvas.gameObject.SetActive(false);
         
         M_GameManager.I.LevelStart();
     }
