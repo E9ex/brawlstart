@@ -170,6 +170,7 @@ MonoBehaviour:
   rightJoystick: {fileID: 0}
   playersprite: {fileID: 4565297295065584519}
   anim: {fileID: 350818799106000427}
+  deathExp: {fileID: 4900448555329259641, guid: 619c0cf85af204ce2b55bd7f90fa700c, type: 3}
   Maxhealth: 100
   Currenthealth: 0
   moveSpeed: 5

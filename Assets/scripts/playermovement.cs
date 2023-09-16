@@ -10,6 +10,7 @@ public class playermovement : MonoBehaviour
     [SerializeField] private Transform playersprite;
     [SerializeField] private Animator anim;
     private playerhealthbar Playerhealthbar;
+    public GameObject deathExp;
     public int Maxhealth = 100;
     public int Currenthealth;
     private bool movement;
@@ -29,6 +30,15 @@ public class playermovement : MonoBehaviour
     public healtbarforplayers healtbarforplayers;
 
     public bool inputIsJoystick = true;
+    
+    
+    [Header("movespeed")]
+    public bool isIncreasingMoveSpeed = false;
+    public float initialMoveSpeed = 10f;
+    public float increasedMoveSpeed = 20f;
+    public float duration = 10f;
+    public float timer = 0f;
+    public GameObject Shoes;
 
     private void Awake()
     {
@@ -38,6 +48,7 @@ public class playermovement : MonoBehaviour
 
     void Start()
     {
+        Shoes.gameObject.SetActive(false);
         Currenthealth = Maxhealth;
         healtbarforplayers.setmaximumhealth(Maxhealth);
         // playersprite.gameObject.SetActive(false);
@@ -54,6 +65,15 @@ public class playermovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (isIncreasingMoveSpeed)
+        {
+            timer += Time.deltaTime;
+            if (timer >= duration)
+            {
+                moveSpeed = initialMoveSpeed;
+                isIncreasingMoveSpeed = false;
+            }
+        }
 
         if (inputIsJoystick)
         { 
@@ -129,12 +149,18 @@ public class playermovement : MonoBehaviour
     void Die()
     {
         Destroy(gameObject);
-       // Instantiate(deathExp, transform.position, Quaternion.identity);
+        Instantiate(deathExp, transform.position, Quaternion.identity);
     }
 
     private void IncreasemoveSpeed()
     {
-        moveSpeed += 10f;
+        if (!isIncreasingMoveSpeed)
+        {
+            moveSpeed = increasedMoveSpeed;
+            isIncreasingMoveSpeed = true;
+            timer = 0f;
+            Shoes.gameObject.SetActive(true);
+        }
     }
 
     private void OnTriggerEnter(Collider other)
