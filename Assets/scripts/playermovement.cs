@@ -72,6 +72,7 @@ public class playermovement : MonoBehaviour
             {
                 moveSpeed = initialMoveSpeed;
                 isIncreasingMoveSpeed = false;
+                Shoes.gameObject.SetActive(false);
             }
         }
 
