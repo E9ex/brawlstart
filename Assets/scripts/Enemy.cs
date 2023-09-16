@@ -85,6 +85,7 @@ public class Enemy : MonoBehaviour
     void CalculateVelocity()
     {
         velocity = agent.velocity.magnitude;
+        Debug.Log("ENEMY VELOCITY " + velocity);
     }
 
     bool RandomPoint(Vector3 center, float range, out Vector3 result)
