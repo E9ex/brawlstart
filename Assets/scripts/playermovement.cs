@@ -20,6 +20,7 @@ public class playermovement : MonoBehaviour
     
     public float speed = 5;
     Vector3 lastPosition;
+   
     
     [Header("anim")]
     public float animforvelo=0.0f;
@@ -36,13 +37,12 @@ public class playermovement : MonoBehaviour
     public float duration = 10f;
     public float timer = 0f;
     public GameObject Shoes;
-    private UImanager uImanager;
     public float velocity;
     public float velocityLimit = .05f;
     private static readonly int Velocityhash = Animator.StringToHash("velocity");
     private void Awake()
     {
-        uImanager = GetComponent<UImanager>();
+     
         characterController = GetComponent<CharacterController>();
     }
 
@@ -152,7 +152,6 @@ public class playermovement : MonoBehaviour
     void Die()
     {
         Destroy(gameObject);
-        uImanager.setyouwintxt();
         Instantiate(deathExp, transform.position, Quaternion.identity);
     }
 

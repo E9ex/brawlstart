@@ -8,9 +8,11 @@ public class bulletEnemy : MonoBehaviour
     public float life = 3;
 
     private playermovement playermovement;
+  
 
     private void Awake()
     {
+       
         playermovement = GetComponent<playermovement>();
         Destroy(gameObject,life);
     }

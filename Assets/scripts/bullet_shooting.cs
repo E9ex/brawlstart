@@ -9,6 +9,7 @@ public class bullet_shooting : MonoBehaviour
     private Vector3 bulletenddist;
     [SerializeField] private float speed;
     private int damagep = 20;
+  
     private void Awake()
     {
         transform.position += transform.forward * .5f;
@@ -20,7 +21,7 @@ public class bullet_shooting : MonoBehaviour
         bulletenddist = transform.position + transform.forward * pa.lrdistance;// merminin gidebileceği yer.
     }
 
-    // Update is called once per frame
+    // Update is called once per frame 
     void Update()
     {
         if (transform.position==bulletenddist)

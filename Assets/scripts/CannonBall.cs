@@ -35,6 +35,7 @@ public class CannonBall : MonoBehaviour
             if (enemyComponent != null)
             {
                 enemyComponent.takedamage(20);
+               
             }
             Destroy(this.gameObject);
         }
