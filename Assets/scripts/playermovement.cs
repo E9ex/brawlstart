@@ -40,6 +40,10 @@ public class playermovement : MonoBehaviour
     public float velocity;
     public float velocityLimit = .05f;
     private static readonly int Velocityhash = Animator.StringToHash("velocity");
+    Camera mainCam;
+
+    public Vector3 velocityMove;
+
     private void Awake()
     {
         UImanagerr = GetComponent<UImanager>();
@@ -56,11 +60,14 @@ public class playermovement : MonoBehaviour
         M_Camera.I.StartCamera(transform);
         lastPosition = transform.position;
         playersprite.gameObject.SetActive(true);
+
+        mainCam = Camera.main;
     }
 
     void CalculateVelocity()
     {
-        velocity = characterController.velocity.magnitude;
+        velocityMove = characterController.velocity;
+        velocity = velocityMove.magnitude;
     }
 
     // Update is called once per frame
@@ -119,7 +126,38 @@ public class playermovement : MonoBehaviour
 
             CalculateVelocity();
             if(velocity > velocityLimit)
-            anim.SetFloat(Velocityhash, velocity);
+                anim.SetFloat(Velocityhash, velocity);
+        }
+
+        GetMousePos();
+
+    }
+
+
+    void LookAtTarget(Vector3 lookPos)
+    {
+        Vector3 targetDirection = lookPos - transform.position;
+
+        targetDirection -= Vector3.up * targetDirection.y;
+
+        Quaternion targetRotation = Quaternion.LookRotation(targetDirection);
+
+        transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, 5 * Time.deltaTime);
+    }
+
+    
+    
+    void GetMousePos()
+    {
+        if (mainCam != null)
+        {
+            Ray ray = mainCam.ScreenPointToRay(Input.mousePosition);
+            if (Physics.Raycast(ray, out RaycastHit raycastHit))
+            {
+                
+                LookAtTarget(new Vector3(raycastHit.point.x, 0, raycastHit.point.z));   
+                // transform.position = targetPos;
+            }
         }
     }
     
@@ -151,6 +189,7 @@ public class playermovement : MonoBehaviour
     }
     void Die()
     {
+        M_EndGame.I.Open();
         Destroy(gameObject);
         Instantiate(deathExp, transform.position, Quaternion.identity);
     }
