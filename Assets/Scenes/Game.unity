@@ -16702,6 +16702,7 @@ GameObject:
   - component: {fileID: 4216711458619760181}
   - component: {fileID: 4216711458619760183}
   - component: {fileID: 4216711458619760184}
+  - component: {fileID: 4216711458619760185}
   m_Layer: 0
   m_Name: Enemyriflerunnew
   m_TagString: enemy
@@ -16998,6 +16999,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!136 &4216711458619760185
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3589109519636612238}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.57022095
+  m_Height: 1.6845088
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.83157516, z: 0.07022095}
 --- !u!4 &4316378333578765205
 Transform:
   m_ObjectHideFlags: 0

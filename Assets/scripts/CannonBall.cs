@@ -26,13 +26,17 @@ public class CannonBall : MonoBehaviour
         Debug.Log("MERMI PATLIYOR " + collision.gameObject.tag);
         Instantiate(deathEffect, transform.position, Quaternion.LookRotation(collision.contacts[0].normal));
         Destroy(gameObject);
-        if (collision.gameObject.CompareTag("enemy"))
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("enemy"))
         {
-            Enemy enemyComponent = collision.gameObject.GetComponent<Enemy>();
+            Enemy enemyComponent = other.gameObject.GetComponent<Enemy>();
             if (enemyComponent != null)
             {
                 enemyComponent.takedamage(20);
             }
+            Destroy(this.gameObject);
         }
     }
 }

@@ -29,21 +29,18 @@ public class bullet_shooting : MonoBehaviour
         }
         transform.Translate(Vector3.forward*speed);
     }
-    private void OnCollisionEnter(Collision other)
+
+    private void OnTriggerEnter(Collider other)
     {
+        
         if (other.gameObject.CompareTag("enemy"))
         {
-            // Çarpışma "enemy" etiketli bir nesneyle oldu
             Enemy enemyComponent = other.gameObject.GetComponent<Enemy>();
             if (enemyComponent != null)
             {
-                // Eğer "Enemy" bileşeni varsa, "takedamage" fonksiyonunu çağırarak zarar verin
                 enemyComponent.takedamage(damagep);
             }
-
-            // Mermiyi yok edin
             Destroy(this.gameObject);
         }
     }
-    
 }
