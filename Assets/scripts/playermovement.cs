@@ -148,7 +148,7 @@ public class playermovement : MonoBehaviour
     void Die()
     {
         Destroy(gameObject);
-        uImanager.setyoulosetxt();
+        uImanager.setyouwintxt();
         Instantiate(deathExp, transform.position, Quaternion.identity);
     }
 

@@ -634,7 +634,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 5796975595442893889}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8869483877009230956}
+        m_TargetAssemblyTypeName: restartbutton, Assembly-CSharp
+        m_MethodName: Restartbutton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1703613437909990973
 GameObject:
   m_ObjectHideFlags: 0
@@ -2440,7 +2452,7 @@ GameObject:
   - component: {fileID: 5240986493885500750}
   - component: {fileID: 5240986493885500751}
   - component: {fileID: 4225406655787000747}
-  - component: {fileID: 449258807106285112}
+  - component: {fileID: 7613901996634891636}
   m_Layer: 8
   m_Name: player
   m_TagString: Player
@@ -2551,7 +2563,7 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 1, z: 0}
---- !u!114 &449258807106285112
+--- !u!114 &7613901996634891636
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3611,6 +3623,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8313206915151240048}
+  - component: {fileID: 8869483877009230956}
   m_Layer: 8
   m_Name: Player_ throw
   m_TagString: Player
@@ -3637,6 +3650,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8869483877009230956
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8313206915151240047}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e247445d1c8624efca4377022c2a962d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8313206915532257348
 GameObject:
   m_ObjectHideFlags: 0

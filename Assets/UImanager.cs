@@ -4,6 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
+
 public class UImanager : MonoBehaviour
 {
   public GameObject endgamepanel;
@@ -22,5 +23,7 @@ public class UImanager : MonoBehaviour
       youwintxt.gameObject.SetActive(false);
       youlosetxt.gameObject.SetActive(true);
   }
+
+
 
 }
