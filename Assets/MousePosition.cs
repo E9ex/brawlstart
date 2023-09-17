@@ -18,7 +18,7 @@ public class MousePosition : MonoBehaviour
             Ray ray = maincamera.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out RaycastHit raycastHit))
             {
-                targetPos = new Vector3(raycastHit.point.x, 1.25f, raycastHit.point.z);
+                targetPos = new Vector3(raycastHit.point.x, 9f, raycastHit.point.z);//1.25f ==y
                 
                 transform.position = targetPos;
             }

@@ -59,7 +59,7 @@ public class playermovement : MonoBehaviour
         // playersprite.gameObject.SetActive(false);
         M_Camera.I.StartCamera(transform);
         lastPosition = transform.position;
-        playersprite.gameObject.SetActive(true);
+      
 
         mainCam = Camera.main;
     }
