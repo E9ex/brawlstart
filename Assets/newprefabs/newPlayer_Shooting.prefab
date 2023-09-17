@@ -1203,8 +1203,8 @@ MonoBehaviour:
         transform: {fileID: 0}
         weight: 0
     m_Offset: {x: 0, y: 0, z: 0}
-    m_MinLimit: -180
-    m_MaxLimit: 180
+    m_MinLimit: -78
+    m_MaxLimit: 84
     m_AimAxis: 2
     m_UpAxis: 1
     m_WorldUpType: 0
@@ -1700,7 +1700,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a921f973d71f41f5a0f39f357806126, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maincamera: {fileID: 0}
 --- !u!1 &7460991432857819938
 GameObject:
   m_ObjectHideFlags: 0
@@ -3678,8 +3677,8 @@ MonoBehaviour:
         transform: {fileID: 0}
         weight: 0
     m_Offset: {x: 0, y: 0, z: 0}
-    m_MinLimit: -180
-    m_MaxLimit: 180
+    m_MinLimit: -78
+    m_MaxLimit: 84
     m_AimAxis: 4
     m_UpAxis: 2
     m_WorldUpType: 0

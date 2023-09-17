@@ -25,11 +25,12 @@ public class Enemy : MonoBehaviour
     private static readonly int Velocity = Animator.StringToHash("velocity");
 
     bool isGameStarted = false;
+   
     
 
     private void Awake()
     {
-       
+        
         forwardsandbackwards = GetComponent<Animator>();
         agent = GetComponent<NavMeshAgent>();
         //  enemy = GetComponent<Transform>();
@@ -118,7 +119,6 @@ public class Enemy : MonoBehaviour
     {
         Destroy(gameObject);
         Instantiate(deathExp, transform.position, Quaternion.identity);
-     
     }
    
 

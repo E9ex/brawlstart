@@ -26,7 +26,7 @@ public class playermovement : MonoBehaviour
     public float animforvelo=0.0f;
     public float Acceleration = 1;
     private int velocityhash = Animator.StringToHash("Velocity");
-
+    private UImanager UImanagerr;
     CharacterController characterController;
     public healtbarforplayers healtbarforplayers;
     public bool inputIsJoystick = true;
@@ -42,7 +42,7 @@ public class playermovement : MonoBehaviour
     private static readonly int Velocityhash = Animator.StringToHash("velocity");
     private void Awake()
     {
-     
+        UImanagerr = GetComponent<UImanager>();
         characterController = GetComponent<CharacterController>();
     }
 
