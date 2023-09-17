@@ -8524,7 +8524,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26d8c2dddeb61489884ff1e058f5314b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shootingmanprefab: {fileID: 4565297295210868911, guid: 4c9afec8ad1754cb4bc8779ccafc6154, type: 3}
+  shootingmanprefab: {fileID: 7052816581029223048, guid: d9db62594349042268389d6a00a8acf7, type: 3}
   Throwmanprefab: {fileID: 8313206915151240047, guid: 4b755341e7bfd41559986cc56e1a84da, type: 3}
   playerSpawnPoint: {fileID: 1323198443}
   lobbycanvas: {fileID: 1611229296}
@@ -16701,6 +16701,7 @@ GameObject:
   - component: {fileID: 4216711458619760182}
   - component: {fileID: 4216711458619760181}
   - component: {fileID: 4216711458619760183}
+  - component: {fileID: 4216711458619760184}
   m_Layer: 0
   m_Name: Enemyriflerunnew
   m_TagString: enemy
@@ -16981,6 +16982,22 @@ MonoBehaviour:
   endgamepanel: {fileID: 2094660218}
   youwintxt: {fileID: 447615530}
   youlosetxt: {fileID: 885010401}
+--- !u!54 &4216711458619760184
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3589109519636612238}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!4 &4316378333578765205
 Transform:
   m_ObjectHideFlags: 0
@@ -18340,8 +18357,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3606113755454777301}
   m_LocalRotation: {x: 0.0830035, y: 0.121395454, z: 0.013035444, w: 0.9890418}
-  m_LocalPosition: {x: -0.0005234004, y: 0.828925, z: 0.000052124262}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -0.0005187988, y: 0.82891846, z: 0.00005197525}
+  m_LocalScale: {x: 1, y: 0.99999994, z: 0.99999994}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2200594663501514716}

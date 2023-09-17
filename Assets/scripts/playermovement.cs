@@ -37,6 +37,9 @@ public class playermovement : MonoBehaviour
     public float timer = 0f;
     public GameObject Shoes;
     private UImanager uImanager;
+    public float velocity;
+    public float velocityLimit = .05f;
+    private static readonly int Velocityhash = Animator.StringToHash("velocity");
     private void Awake()
     {
         uImanager = GetComponent<UImanager>();
@@ -57,7 +60,7 @@ public class playermovement : MonoBehaviour
 
     void CalculateVelocity()
     {
-        Velocity = characterController.velocity.magnitude;
+        velocity = characterController.velocity.magnitude;
     }
 
     // Update is called once per frame
@@ -115,7 +118,8 @@ public class playermovement : MonoBehaviour
             // }
 
             CalculateVelocity();
-            anim.SetFloat(velocityhash, Velocity);
+            if(velocity > velocityLimit)
+            anim.SetFloat(Velocityhash, velocity);
         }
     }
     

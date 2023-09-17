@@ -2489,7 +2489,7 @@ Animator:
   m_GameObject: {fileID: 4684312252641460512}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 7ded7a499cf504b7682740bd90376a90, type: 2}
+  m_Controller: {fileID: 9100000, guid: 15df1a5db470e4deeae08e6bcd604ea6, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -2531,6 +2531,8 @@ MonoBehaviour:
   duration: 10
   timer: 0
   Shoes: {fileID: 1113663500897479662}
+  velocity: 0
+  velocityLimit: 0.05
 --- !u!136 &5240986493885500751
 CapsuleCollider:
   m_ObjectHideFlags: 0

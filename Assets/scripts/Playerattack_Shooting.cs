@@ -65,7 +65,6 @@ public class Playerattack_Shooting : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-      
         if (CompareTag("enemy"))
         {
             other.transform.GetComponent<Enemy>().takedamage(20);
