@@ -12951,7 +12951,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Shooting
+  m_text: RIFLE
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c31b8fa9bdac6fe4fbc1bbd9d6d6c165, type: 2}
   m_sharedMaterial: {fileID: -2946926171228687840, guid: c31b8fa9bdac6fe4fbc1bbd9d6d6c165, type: 2}
@@ -14127,7 +14127,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: ThrowMan
+  m_text: RPG
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c31b8fa9bdac6fe4fbc1bbd9d6d6c165, type: 2}
   m_sharedMaterial: {fileID: -2946926171228687840, guid: c31b8fa9bdac6fe4fbc1bbd9d6d6c165, type: 2}
