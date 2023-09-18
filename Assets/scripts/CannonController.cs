@@ -85,8 +85,6 @@ public class CannonController : MonoBehaviour
             
             p.GetComponent<Rigidbody>().velocity = turret.up * currentSpeed;
 
-            
-
             // Instantiate(cannonFirePrefab, smokePuffPoint.position, Quaternion.LookRotation(turret.up));
 
             lastShotTime = Time.time;

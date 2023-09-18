@@ -4106,8 +4106,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be850a425972d4446bc3edbf05312bb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 5132180620074189521}
-  heightOffset: 3.5
+  target: {fileID: 6348582740032947249}
+  heightOffset: 1
 --- !u!1 &7316922408379682981
 GameObject:
   m_ObjectHideFlags: 0
