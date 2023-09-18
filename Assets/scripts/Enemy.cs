@@ -22,7 +22,7 @@ public class Enemy : MonoBehaviour
     Vector3 currentPosition;
     public float velocity;
     public float velocityLimit = .05f;
-    private static readonly int Velocity = Animator.StringToHash("velocity");
+    private static readonly int Velocity = Animator.StringToHash("ForwardMove");
 
     bool isGameStarted = false;
    

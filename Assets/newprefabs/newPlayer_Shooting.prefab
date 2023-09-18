@@ -1363,7 +1363,8 @@ MonoBehaviour:
   timer: 0
   Shoes: {fileID: 59180437168123062}
   velocity: 0
-  velocityLimit: 0.05
+  velocityLimit: 0
+  velocityMove: {x: 0, y: 0, z: 0}
 --- !u!143 &7460991432662936715
 CharacterController:
   m_ObjectHideFlags: 0
@@ -1700,6 +1701,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a921f973d71f41f5a0f39f357806126, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targetPos: {x: 0, y: 0, z: 0}
 --- !u!1 &7460991432857819938
 GameObject:
   m_ObjectHideFlags: 0

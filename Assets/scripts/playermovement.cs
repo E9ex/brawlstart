@@ -66,7 +66,7 @@ public class playermovement : MonoBehaviour
 
     void CalculateVelocity()
     {
-        velocityMove = characterController.velocity;
+            velocityMove = transform.InverseTransformDirection(characterController.velocity/5);;
         velocity = velocityMove.magnitude;
     }
 
@@ -125,8 +125,13 @@ public class playermovement : MonoBehaviour
             // }
 
             CalculateVelocity();
-            if(velocity > velocityLimit)
-                anim.SetFloat(Velocityhash, velocity);
+            if (velocity > velocityLimit)
+            {
+                anim.SetFloat("SideMove", velocityMove.x);
+                anim.SetFloat("ForwardMove", velocityMove.z);
+                // anim.SetFloat(Velocityhash, velocity);
+            }
+                
         }
 
         GetMousePos();
