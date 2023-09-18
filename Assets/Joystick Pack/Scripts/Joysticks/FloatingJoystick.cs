@@ -33,20 +33,20 @@ public partial class FloatingJoystick : Joystick
         base.OnPointerDown(eventData);
     }
 
-    public override void OnPointerUp(PointerEventData eventData)
-    {
-        //background.gameObject.SetActive(false);
-        base.OnPointerUp(eventData);
-        switch (shoottype)
-        {
-            case "shoot":
-                playerattackShooting.playershooting();
-                break;
-            case "throw":
-                playerattackThrow.playershooting();
-                break;
-            
-        }
-        
-    }
+    // public override void OnPointerUp(PointerEventData eventData)
+    // {
+    //     //background.gameObject.SetActive(false);
+    //     base.OnPointerUp(eventData);
+    //     switch (shoottype)
+    //     {
+    //         case "shoot":
+    //             playerattackShooting.playershooting();
+    //             break;
+    //         case "throw":
+    //             playerattackThrow.playershooting();
+    //             break;
+    //         
+    //     }
+    //     
+    // }
 }

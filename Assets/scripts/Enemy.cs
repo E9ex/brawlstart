@@ -104,8 +104,6 @@ public class Enemy : MonoBehaviour
         result = Vector3.zero;
         return false;
     }
-
-
     public void takedamage(int damage)
     {
         currenthealth -= damage;
@@ -117,7 +115,7 @@ public class Enemy : MonoBehaviour
     }
     void Die()
     {
-        M_EndGame.I.Open();
+        M_EndGameWin.I.WinPanelOpen();
         Destroy(gameObject);
         Instantiate(deathExp, transform.position, Quaternion.identity);
     }

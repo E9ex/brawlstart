@@ -59,7 +59,7 @@ public class playermovement : MonoBehaviour
         // playersprite.gameObject.SetActive(false);
         M_Camera.I.StartCamera(transform);
         lastPosition = transform.position;
-        playersprite.gameObject.SetActive(true);
+      
 
         mainCam = Camera.main;
     }
@@ -194,7 +194,7 @@ public class playermovement : MonoBehaviour
     }
     void Die()
     {
-        M_EndGame.I.Open();
+        M_EndGame.I.LosePanelOpen();
         Destroy(gameObject);
         Instantiate(deathExp, transform.position, Quaternion.identity);
     }
