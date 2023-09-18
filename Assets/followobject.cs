@@ -9,6 +9,9 @@ public class followobject : MonoBehaviour
 
     void Update()
     {
+        if (target == null)
+            return;
+        
         Vector3 newPosition = new Vector3(target.position.x, target.position.y + heightOffset, target.position.z);
         transform.position = newPosition;
     }
