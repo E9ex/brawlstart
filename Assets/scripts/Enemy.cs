@@ -117,7 +117,7 @@ public class Enemy : MonoBehaviour
     }
     void Die()
     {
-        M_EndGame.I.LosePanelOpen();
+        M_EndGameWin.I.WinPanelOpen();
         Destroy(gameObject);
         Instantiate(deathExp, transform.position, Quaternion.identity);
     }

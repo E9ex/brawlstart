@@ -189,7 +189,7 @@ public class playermovement : MonoBehaviour
     }
     void Die()
     {
-        M_EndGame.I.WinPanelOpen();
+        M_EndGame.I.LosePanelOpen();
         Destroy(gameObject);
         Instantiate(deathExp, transform.position, Quaternion.identity);
     }
