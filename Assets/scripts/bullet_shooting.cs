@@ -18,7 +18,6 @@ public class bullet_shooting : MonoBehaviour
 
     void Update()
     {
-        // Mermiyi ileri doğru hareket ettir.
         transform.Translate(Vector3.forward * speed * Time.deltaTime);
     }
 

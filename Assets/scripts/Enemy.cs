@@ -104,8 +104,6 @@ public class Enemy : MonoBehaviour
         result = Vector3.zero;
         return false;
     }
-
-
     public void takedamage(int damage)
     {
         currenthealth -= damage;

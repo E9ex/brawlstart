@@ -6,16 +6,12 @@ using UnityEngine;
 public class bulletEnemy : MonoBehaviour
 {
     public float life = 3;
-
     private playermovement playermovement;
-  
-
     private void Awake()
     {
         playermovement = GetComponent<playermovement>();
         Destroy(gameObject,life);
     }
-
     private void OnCollisionEnter(Collision other)
     {
         if ( other.gameObject.CompareTag("Player"))

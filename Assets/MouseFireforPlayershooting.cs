@@ -14,7 +14,6 @@ public class MouseFireforPlayershooting : MonoBehaviour
             fire();
         }
     }
-
     void fire()
     {
         GameObject bullet = Instantiate(bulletPrefab, bulletspawnpoint.transform.position, transform.rotation);
@@ -24,13 +23,5 @@ public class MouseFireforPlayershooting : MonoBehaviour
             mermiRigidbody.velocity = transform.forward * mermiRigidbody.velocity.magnitude;
         }
     }
-   
-   
-        // Transform bullet = Instantiate(bulletPrefab, bulletspawnpoint.transform.position, Quaternion.identity);
-        // Rigidbody bulletRigidbody = bullet.GetComponent<Rigidbody>();
-        // if (bulletRigidbody != null)
-        // {
-        //     bulletRigidbody.velocity = transform.forward * bulletSpeed;
-        // }
 }
 
