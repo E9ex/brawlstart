@@ -6,8 +6,12 @@ public class MousePositionforshooting : MonoBehaviour
 {
     private Camera maincamera;
 
-    [SerializeField] Vector3 targetPos;
+[SerializeField] Vector3 targetPos;
 
+    public Vector3 TargetPos
+    {
+    get { return targetPos; }
+    }
     private void Awake()
     {
         maincamera = FindObjectOfType<Camera>();

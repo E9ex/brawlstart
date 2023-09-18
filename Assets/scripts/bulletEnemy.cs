@@ -12,7 +12,6 @@ public class bulletEnemy : MonoBehaviour
 
     private void Awake()
     {
-       
         playermovement = GetComponent<playermovement>();
         Destroy(gameObject,life);
     }

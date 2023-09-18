@@ -4,38 +4,28 @@ using UnityEngine;
 
 public class MouseFireforPlayershooting : MonoBehaviour
 {
-    public Transform bulletPrefab; 
+    public GameObject bulletPrefab; 
     public float bulletSpeed = 10f;
     public GameObject bulletspawnpoint;
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0)) 
         {
-            Fire(); 
+            fire();
         }
     }
-    void Fire()
+
+    void fire()
     {
-        // Farenin pozisyonunu alın
-        Vector3 mousePosition = Input.mousePosition;
-        mousePosition.z = 10f; // Fare pozisyonunu kameradan belirli bir mesafede alın (10 bir varsayılan değer olabilir)
-
-        // Fare pozisyonunu dünya koordinatlarına dönüştürün
-        Vector3 targetPosition = Camera.main.ScreenToWorldPoint(mousePosition);
-
-        // Ateş noktası ve hedef arasındaki yönü hesaplayın
-        Vector3 fireDirection = targetPosition - bulletspawnpoint.transform.position;
-
-        // Ateş edin
-        Transform bullet = Instantiate(bulletPrefab, bulletspawnpoint.transform.position, Quaternion.identity);
-        Rigidbody bulletRigidbody = bullet.GetComponent<Rigidbody>();
-
-        if (bulletRigidbody != null)
+        GameObject bullet = Instantiate(bulletPrefab, bulletspawnpoint.transform.position, transform.rotation);
+        Rigidbody mermiRigidbody = bullet.GetComponent<Rigidbody>();
+        if (mermiRigidbody != null)
         {
-            // Ateş yönüne göre hızı ayarlayın
-            bulletRigidbody.velocity = fireDirection.normalized * bulletSpeed;
+            mermiRigidbody.velocity = transform.forward * mermiRigidbody.velocity.magnitude;
         }
     }
+   
+   
         // Transform bullet = Instantiate(bulletPrefab, bulletspawnpoint.transform.position, Quaternion.identity);
         // Rigidbody bulletRigidbody = bullet.GetComponent<Rigidbody>();
         // if (bulletRigidbody != null)

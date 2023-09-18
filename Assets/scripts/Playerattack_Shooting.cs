@@ -67,22 +67,22 @@ public class Playerattack_Shooting : MonoBehaviour
     //         shoot=true;
     //     }  
     // }
-    
-    void Fire()
-    {
-        Transform bullet = Instantiate(Bulletprefab, transform.position, transform.rotation);
-        
-        // Kurşuna hız verin
-        Rigidbody bulletRigidbody = bullet.GetComponent<Rigidbody>();
-        if (bulletRigidbody != null)
-        {
-            bulletRigidbody.velocity = transform.forward * bulletspeed;
-        }
-        else
-        {
-            Debug.LogError("Kurşun nesnesi bir Rigidbody bileşeni içermiyor.");
-        }
-    }
+    //
+    // void Fire()
+    // {
+    //     Transform bullet = Instantiate(Bulletprefab, transform.position, transform.rotation);
+    //     
+    //     // Kurşuna hız verin
+    //     Rigidbody bulletRigidbody = bullet.GetComponent<Rigidbody>();
+    //     if (bulletRigidbody != null)
+    //     {
+    //         bulletRigidbody.velocity = transform.forward * bulletspeed;
+    //     }
+    //     else
+    //     {
+    //         Debug.LogError("Kurşun nesnesi bir Rigidbody bileşeni içermiyor.");
+    //     }
+    // }
 
     private void OnTriggerEnter(Collider other)
     {

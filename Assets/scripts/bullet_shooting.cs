@@ -5,30 +5,21 @@ using UnityEngine;
 
 public class bullet_shooting : MonoBehaviour
 {
-     private Playerattack_Shooting pa;
-    private Vector3 bulletenddist;
-    [SerializeField] private float speed;
-    private int damagep = 20;
-  
+    private Rigidbody rb;
+    public float speed = 10f;
+    public int damage = 20;
+    public float bulletLifetime = 3f;
+
     private void Awake()
     {
-        transform.position += transform.forward * .5f;
+        rb = GetComponent<Rigidbody>();
+        Destroy(gameObject,bulletLifetime);
     }
 
-    void Start()
-    {
-        pa = GameObject.Find("attacktrail").GetComponent<Playerattack_Shooting>();
-        bulletenddist = transform.position + transform.forward * pa.lrdistance;// merminin gidebileceği yer.
-    }
-
-    // Update is called once per frame 
     void Update()
     {
-        if (transform.position==bulletenddist)
-        {
-            Destroy(this.gameObject);
-        }
-        transform.Translate(Vector3.forward*speed);
+        // Mermiyi ileri doğru hareket ettir.
+        transform.Translate(Vector3.forward * speed * Time.deltaTime);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -39,7 +30,7 @@ public class bullet_shooting : MonoBehaviour
             Enemy enemyComponent = other.gameObject.GetComponent<Enemy>();
             if (enemyComponent != null)
             {
-                enemyComponent.takedamage(damagep);
+                enemyComponent.takedamage(damage);
             }
             Destroy(this.gameObject);
         }
