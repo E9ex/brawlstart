@@ -98,38 +98,13 @@ public class playermovement : MonoBehaviour
             characterController.Move(moveDirection * speed * Time.deltaTime);
             #endregion
           
-            //     if (leftJoystick.Horizontal > 0 || leftJoystick.Horizontal < 0 || leftJoystick.Vertical > 0 || leftJoystick.Vertical < 0)
-            //     {
-            //         playersprite.position = new Vector3(leftJoystick.Horizontal + transform.position.x, .1f,
-            //             leftJoystick.Vertical + transform.position.z);
-            //         transform.LookAt(new Vector3(playersprite.position.x, 0, playersprite.position.z));
-            //         transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
-            //     }
-            //
-            //     Vector3 moveDirection = new Vector3(leftJoystick.Horizontal, 0.0f, leftJoystick.Vertical);
-            //
-            //     if (moveDirection.magnitude > 1)
-            //         moveDirection.Normalize();
-            //     characterController.Move(moveDirection * speed * Time.deltaTime);
-            // }
-            // else
-            // {
-            //     // //KLAVYE İLE HAREKET BURDA
-            //     float horizontalInput = Input.GetAxis("Horizontal");
-            //     float verticalInput = Input.GetAxis("Vertical");
-            //     
-            //     Vector3 movement = new Vector3(horizontalInput, 0f, verticalInput) * moveSpeed * Time.deltaTime;
-            //     transform.Translate(movement);
-            //     
-            //     //characterController.Move(moveDirection * speed * Time.deltaTime);
-            // }
+            
 
             CalculateVelocity();
             if (velocity > velocityLimit)
             {
                 anim.SetFloat("SideMove", velocityMove.x);
                 anim.SetFloat("ForwardMove", velocityMove.z);
-                // anim.SetFloat(Velocityhash, velocity);
             }
                 
         }
@@ -166,22 +141,22 @@ public class playermovement : MonoBehaviour
         }
     }
     
-
-    public void OnDrag(PointerEventData ped)
-    {
-        //move joystick        
-        //move character
-    }
-
-    public void OnPointerDown(PointerEventData ped)
-    {
-        OnDrag(ped);
-    }
-
-    public void OnPointerUp(PointerEventData ped)
-    {
-        //reset joystick
-    }
+// public void OnDrag(PointerEventData ped)
+//     {
+//         //move joystick        
+//         //move character
+//     }
+//     
+//
+//     public void OnPointerDown(PointerEventData ped)
+//     {
+//         OnDrag(ped);
+//     }
+//
+//     public void OnPointerUp(PointerEventData ped)
+//     {
+//         //reset joystick
+//     }
     
     public void takedamage(int damage)
     {
@@ -217,6 +192,5 @@ public class playermovement : MonoBehaviour
             Destroy(other.gameObject);
             IncreasemoveSpeed();
         }
-        
     }
 }
